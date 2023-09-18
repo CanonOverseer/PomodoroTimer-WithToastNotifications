@@ -1,6 +1,8 @@
 using PomodoroService;
 using Spectre.Console;
 
+Console.Title = "Pomodoro Timer";
+
 var workTime = new TextPrompt<int>("How long between breaks? (in Minutes)")
     .DefaultValue(25)
     .Show(AnsiConsole.Console);
