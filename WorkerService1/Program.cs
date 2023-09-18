@@ -1,15 +1,13 @@
 using PomodoroService;
 using Spectre.Console;
 
-var prompt = new TextPrompt<int>("How long of a break (in Minutes)")
-    .DefaultValue(5);
+var workTime = new TextPrompt<int>("How long between breaks? (in Minutes)")
+    .DefaultValue(25)
+    .Show(AnsiConsole.Console);
 
-var breakTime = prompt.Show(AnsiConsole.Console);
-
-prompt = new TextPrompt<int>("How long should you work (in Minutes)")
-    .DefaultValue(25);
-
-var workTime = prompt.Show(AnsiConsole.Console);
+var breakTime = new TextPrompt<int>("How long of a break (in Minutes)")
+    .DefaultValue(5)
+    .Show(AnsiConsole.Console);
 
 PomodoroWorker.BreakTimeSpan = TimeSpan.FromMinutes(breakTime);
 PomodoroWorker.WorkTimeSpan = TimeSpan.FromMinutes(workTime);
